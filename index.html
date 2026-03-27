@@ -745,6 +745,7 @@
       <li><a href="#testimonials">Stories</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#signup" class="btn-pill">Join a class</a></li>
+      <li><button onclick="toggleUrdu()" id="urduBtn" style="background:var(--dark);color:#fff;border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#E03C28'" onmouseout="this.style.background='#0F172A'">🇵🇰 اردو</button></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -934,9 +935,13 @@
           <div style="display:inline-block;background:#EAF3DE;color:#3B6D11;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:1.25rem;">Ages 8–12</div>
           <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:800;margin-bottom:0.4rem;">Young Learners</h3>
           <p style="font-size:13px;color:var(--text-muted);margin-bottom:1.5rem;line-height:1.6;">Fun, engaging English classes designed specifically for children aged 8 to 12.</p>
-          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:1.75rem;">
+          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:0.4rem;">
             <span style="font-family:var(--font-display);font-size:3rem;font-weight:800;letter-spacing:-2px;line-height:1;">$500</span>
             <span style="font-size:13px;color:var(--text-muted);">/ 12-week program</span>
+          </div>
+          <div style="background:#EAF3DE;border-radius:8px;padding:8px 12px;margin-bottom:1.75rem;display:inline-flex;align-items:center;gap:6px;">
+            <span style="font-size:12px;">💳</span>
+            <span style="font-size:12px;color:#3B6D11;font-weight:500;">Or 4 easy payments of <strong>$125</strong></span>
           </div>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:2rem;">
             <li style="display:flex;align-items:center;gap:10px;font-size:14px;"><span style="width:18px;height:18px;background:#3B6D11;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;flex-shrink:0;">✓</span>3 classes per week</li>
@@ -946,6 +951,7 @@
             <li style="display:flex;align-items:center;gap:10px;font-size:14px;"><span style="width:18px;height:18px;background:#3B6D11;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;flex-shrink:0;">✓</span>Free intro call</li>
           </ul>
           <a href="https://buy.stripe.com/fZu7sK4W777c5S64OEfrW04" target="_blank" style="display:block;text-align:center;background:var(--dark);color:#fff;padding:13px;border-radius:var(--radius-md);font-family:var(--font-display);font-weight:700;font-size:0.95rem;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#E03C28'" onmouseout="this.style.background='#0F172A'">Enrol now — $500</a>
+          <a href="https://wa.me/14347099024?text=Hi%20Faheem!%20I%27d%20like%20to%20pay%20in%20installments%20for%20the%20Young%20Learners%20program." target="_blank" style="display:block;text-align:center;background:transparent;color:#3B6D11;border:1px solid #3B6D11;padding:10px;border-radius:var(--radius-md);font-family:var(--font-body);font-weight:500;font-size:13px;text-decoration:none;margin-top:8px;transition:background 0.2s;" onmouseover="this.style.background='#EAF3DE'" onmouseout="this.style.background='transparent'">💳 Pay in 4 installments of $125</a>
         </div>
 
         <!-- Adults Plan -->
@@ -953,9 +959,13 @@
           <div style="display:inline-block;background:rgba(224,60,40,0.2);color:#FF7A6B;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:1.25rem;">Ages 19+</div>
           <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:800;margin-bottom:0.4rem;color:#fff;">Adult Fluency</h3>
           <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:1.5rem;line-height:1.6;">Intensive English coaching for adults — professional, conversational or exam-focused.</p>
-          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:1.75rem;">
+          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:0.4rem;">
             <span style="font-family:var(--font-display);font-size:3rem;font-weight:800;letter-spacing:-2px;line-height:1;color:#fff;">$1,000</span>
             <span style="font-size:13px;color:rgba(255,255,255,0.45);">/ 12-week program</span>
+          </div>
+          <div style="background:rgba(224,60,40,0.15);border-radius:8px;padding:8px 12px;margin-bottom:1.75rem;display:inline-flex;align-items:center;gap:6px;">
+            <span style="font-size:12px;">💳</span>
+            <span style="font-size:12px;color:#FF7A6B;font-weight:500;">Or 4 easy payments of <strong>$250</strong></span>
           </div>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:2rem;">
             <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="width:18px;height:18px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;flex-shrink:0;">✓</span>3 classes per week</li>
@@ -965,6 +975,7 @@
             <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="width:18px;height:18px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;flex-shrink:0;">✓</span>Free intro call</li>
           </ul>
           <a href="https://buy.stripe.com/14A00igEPgHM0xM2GwfrW05" target="_blank" style="display:block;text-align:center;background:var(--red);color:#fff;padding:13px;border-radius:var(--radius-md);font-family:var(--font-display);font-weight:700;font-size:0.95rem;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Enrol now — $1,000</a>
+          <a href="https://wa.me/14347099024?text=Hi%20Faheem!%20I%27d%20like%20to%20pay%20in%20installments%20for%20the%20Adult%20Fluency%20program." target="_blank" style="display:block;text-align:center;background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);padding:10px;border-radius:var(--radius-md);font-family:var(--font-body);font-weight:500;font-size:13px;text-decoration:none;margin-top:8px;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">💳 Pay in 4 installments of $250</a>
         </div>
 
       </div>
@@ -1202,7 +1213,93 @@
       document.getElementById('navLinks').classList.toggle('open');
     });
 
-    // Countdown timer
+    // Urdu translation
+    var isUrdu = false;
+    var translations = {
+      '.hero-tag': { en: 'Live online English classes', ur: 'براہ راست آن لائن انگریزی کلاسز' },
+      '.hero h1': { en: 'English that<br><span class="accent">lights you up.</span>', ur: 'انگریزی جو آپ کو <span class="accent">روشن کر دے۔</span>' },
+      '.hero-sub': { en: 'From hesitant speaker to confident communicator. Live 1-on-1 and group classes on your schedule, via the platform you already use.', ur: 'ہچکچاہٹ سے پراعتماد گفتگو تک۔ آپ کے شیڈول کے مطابق، آپ کے پسندیدہ پلیٹ فارم پر لائیو کلاسز۔' },
+      '.section-title': { en: null, ur: null },
+    };
+
+    function toggleUrdu() {
+      isUrdu = !isUrdu;
+      var btn = document.getElementById('urduBtn');
+
+      if (isUrdu) {
+        document.body.setAttribute('dir', 'rtl');
+        document.body.style.fontFamily = "'DM Sans', sans-serif";
+        btn.textContent = '🇬🇧 English';
+
+        // Hero
+        document.querySelector('.hero-tag').textContent = 'براہ راست آن لائن انگریزی کلاسز';
+        document.querySelector('.hero h1').innerHTML = 'انگریزی جو آپ کو <span class="accent">روشن کر دے۔</span>';
+        document.querySelector('.hero-sub').textContent = 'ہچکچاہٹ سے پراعتماد گفتگو تک۔ آپ کے شیڈول کے مطابق، آپ کے پسندیدہ پلیٹ فارم پر لائیو کلاسز۔';
+        document.querySelector('.btn-hero').textContent = 'ابھی اپنی جگہ محفوظ کریں';
+        document.querySelector('.btn-ghost').textContent = 'یہ کیسے کام کرتا ہے';
+
+        // Stats
+        var statLabels = document.querySelectorAll('.stat-label');
+        if (statLabels[0]) statLabels[0].textContent = 'طلبا پڑھائے';
+        if (statLabels[1]) statLabels[1].textContent = 'اطمینان کی شرح';
+        if (statLabels[2]) statLabels[2].textContent = 'ممالک تک پہنچ';
+        if (statLabels[3]) statLabels[3].textContent = 'تمام سطحیں';
+
+        // Features eyebrow & title
+        var eyebrows = document.querySelectorAll('.section-eyebrow');
+        if (eyebrows[0]) eyebrows[0].textContent = 'کیوں Spark.English';
+        var titles = document.querySelectorAll('.section-title');
+        if (titles[0]) titles[0].innerHTML = 'بہتری کے لیے سب کچھ<br>یہاں موجود ہے۔';
+
+        // Teacher section
+        if (eyebrows[1]) eyebrows[1].textContent = 'آپ کے استاد';
+        if (titles[1]) titles[1].textContent = 'میں فہیم حسن ہوں۔';
+
+        // How it works
+        if (eyebrows[2]) eyebrows[2].textContent = 'طریقہ کار';
+        if (titles[2]) titles[2].textContent = 'پہلی کلاس تک تین آسان قدم۔';
+
+        // Pricing
+        if (eyebrows[3]) eyebrows[3].textContent = 'قیمتیں';
+        if (titles[3]) titles[3].textContent = 'سادہ اور شفاف قیمتیں۔';
+
+        // Sign up form
+        if (eyebrows[4]) eyebrows[4].textContent = 'شروع کریں';
+        if (titles[4]) titles[4].textContent = 'اپنی جگہ محفوظ کریں۔';
+
+        // Testimonials
+        if (eyebrows[5]) eyebrows[5].textContent = 'طلبا کی کہانیاں';
+        if (titles[5]) titles[5].textContent = 'حقیقی لوگ، حقیقی ترقی۔';
+
+        // FAQ
+        if (eyebrows[6]) eyebrows[6].textContent = 'سوالات';
+        if (titles[6]) titles[6].textContent = 'اکثر پوچھے گئے سوالات۔';
+
+        // Nav
+        var navLinks = document.querySelectorAll('.nav-links a');
+        if (navLinks[0]) navLinks[0].textContent = 'کیوں ہم';
+        if (navLinks[1]) navLinks[1].textContent = 'کیسے کام کرتا ہے';
+        if (navLinks[2]) navLinks[2].textContent = 'قیمتیں';
+        if (navLinks[3]) navLinks[3].textContent = 'کہانیاں';
+        if (navLinks[4]) navLinks[4].textContent = 'سوالات';
+        if (navLinks[5]) navLinks[5].textContent = 'رجسٹر ہوں';
+
+        // Pakistani note
+        var pkNote = document.querySelector('#pricing strong');
+        if (pkNote) pkNote.textContent = 'پاکستانی طلبا';
+        var pkP = pkNote ? pkNote.parentElement : null;
+        if (pkP) pkP.innerHTML = '<strong style="color:var(--text);">پاکستانی طلبا</strong> — براہ کرم رجسٹر کریں اور ہم آپ کے لیے آسان ادائیگی کا طریقہ ترتیب دیں گے۔';
+
+        // WhatsApp tooltip
+        var waTooltip = document.getElementById('waTooltip');
+        if (waTooltip) waTooltip.textContent = 'فہیم سے WhatsApp پر بات کریں';
+
+      } else {
+        document.body.removeAttribute('dir');
+        btn.textContent = '🇵🇰 اردو';
+        location.reload();
+      }
+    }
     function updateCountdown() {
       var deadline = new Date('April 30, 2026 23:59:59').getTime();
       var now = new Date().getTime();
