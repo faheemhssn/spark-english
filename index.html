@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spark.English — Live Online English Classes</title>
+  <meta name="description" content="From hesitant speaker to confident communicator. Live 1-on-1 and group English classes via Zoom, Google Meet, or MS Teams. All levels welcome." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #E03C28;
+      --red-light: rgba(224, 60, 40, 0.12);
+      --red-glow: rgba(224, 60, 40, 0.25);
+      --dark: #0F172A;
+      --dark-2: #1E293B;
+      --white: #ffffff;
+      --text: #1a1a2e;
+      --text-muted: #64748B;
+      --text-faint: #94A3B8;
+      --bg: #F8F7F4;
+      --bg-card: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --border-strong: rgba(0,0,0,0.14);
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: -0.5px;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .logo span { color: var(--red); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .btn-pill {
+      display: inline-block;
+      background: var(--dark);
+      color: var(--white);
+      border: none;
+      padding: 10px 24px;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-pill:hover { background: var(--red); }
+    .btn-pill:active { transform: scale(0.97); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      color: var(--white);
+      padding: 6rem 2.5rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 52px 52px;
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(224,60,40,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(224,60,40,0.15);
+      color: #FF7A6B;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 1.75rem;
+      border: 1px solid rgba(224,60,40,0.3);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6.5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.03;
+      letter-spacing: -2.5px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 .accent { color: var(--red); }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      max-width: 500px;
+      margin: 0 auto 2.75rem;
+      line-height: 1.75;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    .btn-hero {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 14px 36px;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-hero:hover { opacity: 0.88; }
+    .btn-hero:active { transform: scale(0.97); }
+
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 14px 36px;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+      padding-top: 3.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 3px;
+      display: block;
+    }
+
+    /* ── PLATFORMS STRIP ── */
+    .platforms-strip {
+      background: var(--dark-2);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .strip-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .platform-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 5rem 2.5rem; }
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 2.75rem;
+    }
+
+    /* ── FEATURE CARDS ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .feat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feat-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+
+    .feat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 1.1rem;
+    }
+
+    .feat-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.3px;
+    }
+
+    .feat-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps-bg {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .steps-bg .section-title { color: var(--white); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      counter-reset: step-counter;
+    }
+
+    .step {
+      counter-increment: step-counter;
+      position: relative;
+      padding-left: 0;
+    }
+
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .step h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+    }
+
+    /* ── SIGN UP FORM ── */
+    .form-section {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-wrapper {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .form-header { text-align: center; margin-bottom: 2.5rem; }
+
+    .form-header p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-top: 0.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+
+    .field input::placeholder { color: var(--text-faint); }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px var(--red-glow);
+      background: var(--white);
+    }
+
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--text-muted);
+      pointer-events: none;
+    }
+    .select-wrap select { padding-right: 36px; cursor: pointer; }
+
+    /* Platform toggle */
+    .platform-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .platform-btn {
+      padding: 11px 8px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      background: var(--bg);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.15s;
+      text-align: center;
+    }
+
+    .platform-btn:hover {
+      border-color: var(--red);
+      color: var(--red);
+      background: rgba(224,60,40,0.04);
+    }
+
+    .platform-btn.active {
+      border-color: var(--red);
+      background: rgba(224,60,40,0.07);
+      color: var(--red);
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--dark);
+      color: var(--white);
+      border: none;
+      padding: 15px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 1.4rem;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .submit-btn:hover { background: var(--red); }
+    .submit-btn:active { transform: scale(0.99); }
+
+    .form-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-top: 1rem;
+    }
+
+    /* Success */
+    .success-box {
+      display: none;
+      background: #F0FAE8;
+      border: 1px solid #97C459;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .success-box.show { display: block; }
+
+    .success-icon {
+      width: 56px;
+      height: 56px;
+      background: #3B6D11;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 22px;
+    }
+
+    .success-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #27500A;
+      margin-bottom: 0.5rem;
+    }
+
+    .success-box p {
+      font-size: 14px;
+      color: #3B6D11;
+      line-height: 1.65;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .testi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .testi-card:hover { border-color: var(--border-strong); }
+
+    .stars {
+      color: var(--red);
+      font-size: 13px;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .testi-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .testi-name { font-size: 13px; font-weight: 500; }
+    .testi-loc { font-size: 12px; color: var(--text-faint); }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 680px; }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 0;
+    }
+
+    .faq-q {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      user-select: none;
+    }
+
+    .faq-q::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--red);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+
+    .faq-a {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 200px;
+      padding-top: 0.75rem;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.45);
+      padding: 3rem 2.5rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .footer-logo span { color: var(--red); }
+
+    .footer p { font-size: 13px; line-height: 1.7; }
+    .footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .footer a:hover { color: #fff; }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 2rem;
+        gap: 1.25rem;
+        z-index: 99;
+      }
+      .hero { padding: 4rem 1.25rem 3.5rem; }
+      .section { padding: 3.5rem 1.25rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .platform-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 2rem; }
+      .platforms-strip { gap: 0.5rem; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="logo" href="#">Spark<span>.</span>English</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#features">Why us</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#testimonials">Stories</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#signup" class="btn-pill">Join a class</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div class="hero-tag">Live online English classes</div>
+      <h1>English that<br><span class="accent">lights you up.</span></h1>
+      <p class="hero-sub">From hesitant speaker to confident communicator. Live 1-on-1 and group classes on your schedule, via the platform you already use.</p>
+      <div class="hero-cta-group">
+        <a href="#signup" class="btn-hero">Reserve your spot</a>
+        <a href="#how-it-works" class="btn-ghost">How it works</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Students taught</span>
+        </div>
+        <div>
+          <span class="stat-num">98%</span>
+          <span class="stat-label">Satisfaction rate</span>
+        </div>
+        <div>
+          <span class="stat-num">12+</span>
+          <span class="stat-label">Countries reached</span>
+        </div>
+        <div>
+          <span class="stat-num">All</span>
+          <span class="stat-label">Levels welcome</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORMS STRIP -->
+  <div class="platforms-strip">
+    <span class="strip-label">Works on</span>
+    <div class="platform-chip">📹 Zoom</div>
+    <div class="platform-chip">🟢 Google Meet</div>
+    <div class="platform-chip">🟦 MS Teams</div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="section-inner">
+      <div class="section-eyebrow">Why Spark.English</div>
+      <div class="section-title">Everything you need<br>to actually improve.</div>
+      <div class="cards-grid">
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#FFF0EE;">📹</div>
+          <h3>Your platform, your comfort</h3>
+          <p>Zoom, Google Meet, or MS Teams — whatever you already use. No new software to learn.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#EAF3DE;">🌍</div>
+          <h3>All levels welcome</h3>
+          <p>Absolute beginner to near-native. Conversational, business, or exam prep — we tailor it to you.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#E6F1FB;">🗓</div>
+          <h3>Flexible scheduling</h3>
+          <p>Book sessions that fit around your life. Evenings, weekends, lunch breaks — your call.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#FAEEDA;">⚡</div>
+          <h3>Real results, fast</h3>
+          <p>Focused, personalised lessons built to get you speaking with confidence as quickly as possible.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#F0EEFE;">🎯</div>
+          <h3>Personalised curriculum</h3>
+          <p>No cookie-cutter textbooks. Every lesson is built around your goals, challenges, and interests.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#FEF0E6;">🤝</div>
+          <h3>1-on-1 & group options</h3>
+          <p>Prefer privacy or the energy of a group? We offer both so you can learn your way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section steps-bg" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-eyebrow">The process</div>
+      <div class="section-title">Three steps to your first class.</div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Sign up below</h3>
+          <p>Fill in the short form — name, level, and which platform you prefer. Takes under a minute.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>We'll reach out</h3>
+          <p>Within 24 hours we'll email you to book your free 15-minute intro call and choose your schedule.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Start learning</h3>
+          <p>Jump into your first class via Zoom, Meet, or Teams — no downloads, no fuss, just great English.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGN UP FORM -->
+  <section class="section form-section" id="signup">
+    <div class="section-inner">
+      <div class="form-wrapper">
+        <div class="form-header">
+          <div class="section-eyebrow">Get started</div>
+          <div class="section-title" style="margin-bottom:0.4rem;">Reserve your spot.</div>
+          <p>Fill in your details and we'll be in touch within 24 hours to book your first class. No commitment needed.</p>
+        </div>
+
+        <div id="formEl">
+          <div class="form-grid">
+            <div class="field">
+              <label for="fname">First name</label>
+              <input type="text" id="fname" placeholder="e.g. Sarah" autocomplete="given-name" />
+            </div>
+            <div class="field">
+              <label for="lname">Last name</label>
+              <input type="text" id="lname" placeholder="e.g. Ahmed" autocomplete="family-name" />
+            </div>
+            <div class="field full">
+              <label for="email">Email address</label>
+              <input type="email" id="email" placeholder="you@example.com" autocomplete="email" />
+            </div>
+            <div class="field full">
+              <label for="level">Your English level</label>
+              <div class="select-wrap">
+                <select id="level">
+                  <option value="">Select your level...</option>
+                  <option value="beginner">Complete beginner — I'm just starting out</option>
+                  <option value="elementary">Elementary — I know some basics</option>
+                  <option value="intermediate">Intermediate — I can hold a conversation</option>
+                  <option value="upper-intermediate">Upper-intermediate — I want to polish my English</option>
+                  <option value="advanced">Advanced — I need business or professional fluency</option>
+                </select>
+              </div>
+            </div>
+            <div class="field full">
+              <span class="platform-label">Preferred platform</span>
+              <div class="platform-grid">
+                <button class="platform-btn" type="button" onclick="choosePlatform(this, 'Zoom')">📹 Zoom</button>
+                <button class="platform-btn" type="button" onclick="choosePlatform(this, 'Google Meet')">🟢 Google Meet</button>
+                <button class="platform-btn" type="button" onclick="choosePlatform(this, 'MS Teams')">🟦 MS Teams</button>
+              </div>
+            </div>
+          </div>
+
+          <button class="submit-btn" type="button" onclick="handleSubmit()">Reserve my spot →</button>
+          <p class="form-note">No spam, ever. We'll only email you about your class booking.</p>
+        </div>
+
+        <div class="success-box" id="successBox">
+          <div class="success-icon">✓</div>
+          <h3>You're on the list!</h3>
+          <p>Thanks for signing up. We'll email you within 24 hours to confirm your first class and get you started on your English journey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="testimonials">
+    <div class="section-inner">
+      <div class="section-eyebrow">Student stories</div>
+      <div class="section-title">Real people, real progress.</div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"I went from barely ordering coffee in English to presenting confidently at my job. The classes are fun and the progress is genuinely real."</p>
+          <div class="testi-author">
+            <div class="avatar" style="background:#FFF0EE;color:#E03C28;">MG</div>
+            <div>
+              <div class="testi-name">Maria G.</div>
+              <div class="testi-loc">Brazil · Intermediate</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Finally an English class that works around MY schedule. I use Google Meet so I didn't have to install anything new. Brilliant."</p>
+          <div class="testi-author">
+            <div class="avatar" style="background:#E6F1FB;color:#185FA5;">TM</div>
+            <div>
+              <div class="testi-name">Tariq M.</div>
+              <div class="testi-loc">UAE · Upper-intermediate</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"As a complete beginner I was nervous, but the teaching style immediately put me at ease. I'm already having real conversations after 6 weeks."</p>
+          <div class="testi-author">
+            <div class="avatar" style="background:#EAF3DE;color:#3B6D11;">YT</div>
+            <div>
+              <div class="testi-name">Yuki T.</div>
+              <div class="testi-loc">Japan · Beginner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" style="background:var(--white);border-top:1px solid var(--border);">
+    <div class="section-inner">
+      <div class="section-eyebrow">Questions</div>
+      <div class="section-title">Frequently asked.</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What level do I need to join?</div>
+          <div class="faq-a">None at all — we welcome complete beginners right through to advanced speakers looking to reach near-native fluency. Just select your current level when you sign up.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Which platforms do you teach on?</div>
+          <div class="faq-a">We teach on Zoom, Google Meet, and Microsoft Teams. Just pick the one you already use — no new accounts or downloads needed on your end.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How long are the classes?</div>
+          <div class="faq-a">Standard sessions are 60 minutes for 1-on-1 classes and 90 minutes for group sessions. We also offer 30-minute intensive mini-sessions for busy schedules — just ask when we reach out.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Is there a free trial?</div>
+          <div class="faq-a">Yes! After you sign up, we'll invite you to a free 15-minute intro call so we can understand your goals and make sure we're the right fit before you commit to anything.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What types of English do you teach?</div>
+          <div class="faq-a">Conversational English, Business English, Academic English, exam preparation (IELTS, TOEFL, Cambridge), and general fluency. Tell us your goal and we'll design a lesson plan around it.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer-logo">Spark<span>.</span>English</span>
+    <div class="footer-links">
+      <a href="#features">Why us</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#testimonials">Stories</a>
+      <a href="#faq">FAQ</a>
+      <a href="#signup">Sign up</a>
+    </div>
+    <p>© 2025 Spark.English — All rights reserved.<br>Helping language learners worldwide, one class at a time.</p>
+  </footer>
+
+  <script>
+    var selectedPlatform = '';
+
+    function choosePlatform(btn, name) {
+      document.querySelectorAll('.platform-btn').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      selectedPlatform = name;
+    }
+
+    function handleSubmit() {
+      var fname = document.getElementById('fname').value.trim();
+      var lname = document.getElementById('lname').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var level = document.getElementById('level').value;
+
+      if (!fname || !lname) {
+        alert('Please enter your full name.');
+        return;
+      }
+      if (!email || email.indexOf('@') === -1) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      if (!level) {
+        alert('Please select your English level.');
+        return;
+      }
+      if (!selectedPlatform) {
+        alert('Please choose your preferred platform.');
+        return;
+      }
+
+      document.getElementById('formEl').style.display = 'none';
+      document.getElementById('successBox').classList.add('show');
+    }
+
+    function toggleFaq(el) {
+      var item = el.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) {
+        i.classList.remove('open');
+      });
+      if (!isOpen) item.classList.add('open');
+    }
+
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
