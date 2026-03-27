@@ -752,6 +752,7 @@
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#signup" class="btn-pill">Join a class</a></li>
       <li><button onclick="toggleUrdu()" id="urduBtn" style="background:var(--dark);color:#fff;border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#E03C28'" onmouseout="this.style.background='#0F172A'">🇵🇰 اردو</button></li>
+      <li><button onclick="toggleArabic()" id="arabicBtn" style="background:var(--dark);color:#fff;border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#E03C28'" onmouseout="this.style.background='#0F172A'">🇸🇦 عربي</button></li>
       <li style="display:flex;align-items:center;gap:4px;">
         <button onclick="changeTextSize(-1)" title="Smaller text" style="background:var(--bg);border:1px solid var(--border-strong);color:var(--text);width:30px;height:30px;border-radius:50%;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='var(--bg)'">A</button>
         <button onclick="changeTextSize(1)" title="Bigger text" style="background:var(--bg);border:1px solid var(--border-strong);color:var(--text);width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='var(--bg)'">A</button>
@@ -1334,6 +1335,86 @@
       } else {
         document.body.removeAttribute('dir');
         btn.textContent = '🇵🇰 اردو';
+        location.reload();
+      }
+    }
+
+    // Arabic translation
+    var isArabic = false;
+    function toggleArabic() {
+      isArabic = !isArabic;
+      var btn = document.getElementById('arabicBtn');
+
+      if (isArabic) {
+        document.body.setAttribute('dir', 'rtl');
+        btn.textContent = '🇬🇧 English';
+
+        // Hero
+        document.querySelector('.hero-tag').textContent = 'دروس اللغة الإنجليزية المباشرة عبر الإنترنت';
+        document.querySelector('.hero h1').innerHTML = 'الإنجليزية التي <span class="accent">تضيء حياتك.</span>';
+        document.querySelector('.hero-sub').textContent = 'من المتردد إلى المتحدث الواثق. دروس فردية مباشرة وفق جدولك، عبر المنصة التي تفضلها.';
+        document.querySelector('.btn-hero').textContent = '📅 احجز درسك التجريبي المجاني';
+        document.querySelector('.btn-ghost').textContent = 'احجز مقعدك الكامل';
+
+        // Stats
+        var statLabels = document.querySelectorAll('.stat-label');
+        if (statLabels[0]) statLabels[0].textContent = 'طالب تعلّم';
+        if (statLabels[1]) statLabels[1].textContent = 'نسبة الرضا';
+        if (statLabels[2]) statLabels[2].textContent = 'دولة حول العالم';
+        if (statLabels[3]) statLabels[3].textContent = 'جميع المستويات';
+
+        // Section eyebrows & titles
+        var eyebrows = document.querySelectorAll('.section-eyebrow');
+        var titles = document.querySelectorAll('.section-title');
+        if (eyebrows[0]) eyebrows[0].textContent = 'لماذا Spark.English';
+        if (titles[0]) titles[0].innerHTML = 'كل ما تحتاجه<br>للتحسين الحقيقي.';
+        if (eyebrows[1]) eyebrows[1].textContent = 'معلمك';
+        if (titles[1]) titles[1].textContent = 'مرحباً، أنا فهيم حسن.';
+        if (eyebrows[2]) eyebrows[2].textContent = 'طريقة العمل';
+        if (titles[2]) titles[2].textContent = 'ثلاث خطوات بسيطة لأول درس.';
+        if (eyebrows[3]) eyebrows[3].textContent = 'الأسعار';
+        if (titles[3]) titles[3].textContent = 'أسعار واضحة وبسيطة.';
+        if (eyebrows[4]) eyebrows[4].textContent = 'ابدأ الآن';
+        if (titles[4]) titles[4].textContent = 'احجز مقعدك.';
+        if (eyebrows[5]) eyebrows[5].textContent = 'قصص الطلاب';
+        if (titles[5]) titles[5].textContent = 'أشخاص حقيقيون، تقدم حقيقي.';
+        if (eyebrows[6]) eyebrows[6].textContent = 'الأسئلة الشائعة';
+        if (titles[6]) titles[6].textContent = 'أسئلة يسألها الجميع.';
+
+        // Nav links
+        var navLinks = document.querySelectorAll('.nav-links a');
+        if (navLinks[0]) navLinks[0].textContent = 'لماذا نحن';
+        if (navLinks[1]) navLinks[1].textContent = 'كيف يعمل';
+        if (navLinks[2]) navLinks[2].textContent = 'الأسعار';
+        if (navLinks[3]) navLinks[3].textContent = 'القصص';
+        if (navLinks[4]) navLinks[4].textContent = 'الأسئلة';
+        if (navLinks[5]) navLinks[5].textContent = 'سجّل الآن';
+
+        // Countdown banner
+        var cdBanner = document.querySelector('#countdownBanner div div');
+        if (cdBanner) cdBanner.textContent = 'عرض محدود — سجّل قبل 30 أبريل واحصل على درس إضافي مجاني!';
+
+        // Pakistani note
+        var pkP = document.querySelector('#pricing .section-inner > div:last-of-type p');
+        if (pkP) pkP.innerHTML = '<strong style="color:var(--text);">الطلاب العرب</strong> — سجّل الآن وسنرتب لك طريقة دفع مناسبة.';
+
+        // Scholarship
+        var schTitle = document.querySelector('#pricing h3');
+
+        // WhatsApp tooltip
+        var waTooltip = document.getElementById('waTooltip');
+        if (waTooltip) waTooltip.textContent = 'تحدث مع فهيم على واتساب';
+
+        // Form labels
+        document.querySelector('label[for="fname"]').textContent = 'الاسم الأول';
+        document.querySelector('label[for="lname"]').textContent = 'اسم العائلة';
+        document.querySelector('label[for="email"]').textContent = 'البريد الإلكتروني';
+        document.querySelector('label[for="level"]').textContent = 'مستواك في الإنجليزية';
+        document.querySelector('.submit-btn').textContent = 'احجز مقعدي ←';
+
+      } else {
+        document.body.removeAttribute('dir');
+        btn.textContent = '🇸🇦 عربي';
         location.reload();
       }
     }
