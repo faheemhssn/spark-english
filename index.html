@@ -752,6 +752,11 @@
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#signup" class="btn-pill">Join a class</a></li>
       <li><button onclick="toggleUrdu()" id="urduBtn" style="background:var(--dark);color:#fff;border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#E03C28'" onmouseout="this.style.background='#0F172A'">🇵🇰 اردو</button></li>
+      <li style="display:flex;align-items:center;gap:4px;">
+        <button onclick="changeTextSize(-1)" title="Smaller text" style="background:var(--bg);border:1px solid var(--border-strong);color:var(--text);width:30px;height:30px;border-radius:50%;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='var(--bg)'">A</button>
+        <button onclick="changeTextSize(1)" title="Bigger text" style="background:var(--bg);border:1px solid var(--border-strong);color:var(--text);width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='var(--bg)'">A</button>
+        <button onclick="toggleContrast()" id="contrastBtn" title="High contrast mode" style="background:var(--dark);color:#fff;border:none;width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">◐</button>
+      </li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -1312,6 +1317,39 @@
         location.reload();
       }
     }
+
+    // Text size toggle
+    var currentSize = 16;
+    function changeTextSize(direction) {
+      currentSize = Math.min(24, Math.max(14, currentSize + (direction * 2)));
+      document.body.style.fontSize = currentSize + 'px';
+    }
+
+    // High contrast mode
+    var isHighContrast = false;
+    function toggleContrast() {
+      isHighContrast = !isHighContrast;
+      var btn = document.getElementById('contrastBtn');
+      if (isHighContrast) {
+        document.body.style.background = '#000';
+        document.body.style.color = '#fff';
+        document.querySelectorAll('p, h1, h2, h3, h4, li, label, span').forEach(function(el) {
+          el.style.color = '#fff';
+        });
+        document.querySelectorAll('.feat-card, .testi-card, .faq-item').forEach(function(el) {
+          el.style.background = '#111';
+          el.style.border = '1px solid #fff';
+        });
+        document.querySelector('.nav').style.background = '#000';
+        document.querySelector('.nav').style.borderBottom = '2px solid #fff';
+        btn.style.background = '#fff';
+        btn.style.color = '#000';
+        btn.title = 'Turn off high contrast';
+      } else {
+        location.reload();
+      }
+    }
+
     function updateCountdown() {
       var deadline = new Date('April 30, 2026 23:59:59').getTime();
       var now = new Date().getTime();
