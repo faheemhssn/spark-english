@@ -34,6 +34,11 @@
 
     html { scroll-behavior: smooth; }
 
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
     body {
       font-family: var(--font-body);
       color: var(--text);
@@ -892,7 +897,36 @@
     <div class="section-inner">
       <div class="section-eyebrow">Pricing</div>
       <div class="section-title">Simple, transparent pricing.</div>
-      <p style="color:var(--text-muted);font-size:15px;margin-top:-1.5rem;margin-bottom:2.5rem;max-width:520px;">All plans include 3 x 60-minute 1-on-1 sessions per week over 12 weeks. No hidden fees, no contracts.</p>
+      <p style="color:var(--text-muted);font-size:15px;margin-top:-1.5rem;margin-bottom:2rem;max-width:520px;">All plans include 3 x 60-minute 1-on-1 sessions per week over 12 weeks. No hidden fees, no contracts.</p>
+
+      <!-- COUNTDOWN BANNER -->
+      <div id="countdownBanner" style="background:var(--dark);border-radius:var(--radius-lg);padding:1.25rem 1.75rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:700px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="background:var(--red);width:10px;height:10px;border-radius:50%;flex-shrink:0;animation:pulse 1.5s infinite;"></div>
+          <div>
+            <div style="color:#fff;font-family:var(--font-display);font-weight:700;font-size:0.95rem;">Limited time offer — enrol before April 30 and get a free bonus class!</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:12px;margin-top:2px;">Offer expires automatically at midnight on April 30, 2026</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-shrink:0;">
+          <div style="text-align:center;background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px;min-width:52px;">
+            <div id="cdDays" style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:#fff;line-height:1;">00</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-top:2px;">Days</div>
+          </div>
+          <div style="text-align:center;background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px;min-width:52px;">
+            <div id="cdHours" style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:#fff;line-height:1;">00</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-top:2px;">Hours</div>
+          </div>
+          <div style="text-align:center;background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px;min-width:52px;">
+            <div id="cdMins" style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:#fff;line-height:1;">00</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-top:2px;">Mins</div>
+          </div>
+          <div style="text-align:center;background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px;min-width:52px;">
+            <div id="cdSecs" style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--red);line-height:1;">00</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-top:2px;">Secs</div>
+          </div>
+        </div>
+      </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;max-width:700px;">
 
         <!-- Children Plan -->
@@ -1163,6 +1197,31 @@
     document.getElementById('hamburger').addEventListener('click', function() {
       document.getElementById('navLinks').classList.toggle('open');
     });
+
+    // Countdown timer
+    function updateCountdown() {
+      var deadline = new Date('April 30, 2026 23:59:59').getTime();
+      var now = new Date().getTime();
+      var diff = deadline - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdownBanner').style.display = 'none';
+        return;
+      }
+
+      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cdDays').textContent = String(days).padStart(2, '0');
+      document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cdMins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cdSecs').textContent = String(secs).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
