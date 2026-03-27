@@ -753,6 +753,7 @@
       <li><a href="#signup" class="btn-pill">Join a class</a></li>
       <li><button onclick="toggleUrdu()" id="urduBtn" style="background:var(--dark);color:#fff;border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#E03C28'" onmouseout="this.style.background='#0F172A'">🇵🇰 اردو</button></li>
       <li><button onclick="toggleArabic()" id="arabicBtn" style="background:var(--dark);color:#fff;border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#E03C28'" onmouseout="this.style.background='#0F172A'">🇸🇦 عربي</button></li>
+      <li><button onclick="toggleHindi()" id="hindiBtn" style="background:var(--dark);color:#fff;border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#E03C28'" onmouseout="this.style.background='#0F172A'">🇮🇳 हिंदी</button></li>
       <li style="display:flex;align-items:center;gap:4px;">
         <button onclick="changeTextSize(-1)" title="Smaller text" style="background:var(--bg);border:1px solid var(--border-strong);color:var(--text);width:30px;height:30px;border-radius:50%;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='var(--bg)'">A</button>
         <button onclick="changeTextSize(1)" title="Bigger text" style="background:var(--bg);border:1px solid var(--border-strong);color:var(--text);width:34px;height:34px;border-radius:50%;font-size:17px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='var(--bg)'">A</button>
@@ -1335,6 +1336,93 @@
       } else {
         document.body.removeAttribute('dir');
         btn.textContent = '🇵🇰 اردو';
+        location.reload();
+      }
+    }
+
+    // Hindi translation
+    var isHindi = false;
+    function toggleHindi() {
+      isHindi = !isHindi;
+      var btn = document.getElementById('hindiBtn');
+
+      if (isHindi) {
+        btn.textContent = '🇬🇧 English';
+
+        // Hero
+        document.querySelector('.hero-tag').textContent = 'लाइव ऑनलाइन अंग्रेज़ी कक्षाएं';
+        document.querySelector('.hero h1').innerHTML = 'अंग्रेज़ी जो आपको <span class="accent">रोशन कर दे।</span>';
+        document.querySelector('.hero-sub').textContent = 'हिचकिचाहट से आत्मविश्वास तक। आपके शेड्यूल के अनुसार, आपके पसंदीदा प्लेटफॉर्म पर लाइव कक्षाएं।';
+        document.querySelector('.btn-hero').textContent = '📅 मुफ़्त ट्रायल क्लास बुक करें';
+        document.querySelector('.btn-ghost').textContent = 'पूरी जगह बुक करें';
+
+        // Stats
+        var statLabels = document.querySelectorAll('.stat-label');
+        if (statLabels[0]) statLabels[0].textContent = 'छात्र पढ़ाए';
+        if (statLabels[1]) statLabels[1].textContent = 'संतुष्टि दर';
+        if (statLabels[2]) statLabels[2].textContent = 'देशों तक पहुंच';
+        if (statLabels[3]) statLabels[3].textContent = 'सभी स्तर';
+
+        // Section eyebrows & titles
+        var eyebrows = document.querySelectorAll('.section-eyebrow');
+        var titles = document.querySelectorAll('.section-title');
+        if (eyebrows[0]) eyebrows[0].textContent = 'क्यों Spark.English';
+        if (titles[0]) titles[0].innerHTML = 'सुधार के लिए<br>सब कुछ यहाँ है।';
+        if (eyebrows[1]) eyebrows[1].textContent = 'आपके शिक्षक';
+        if (titles[1]) titles[1].textContent = 'नमस्ते, मैं फहीम हसन हूँ।';
+        if (eyebrows[2]) eyebrows[2].textContent = 'प्रक्रिया';
+        if (titles[2]) titles[2].textContent = 'पहली कक्षा तक तीन आसान कदम।';
+        if (eyebrows[3]) eyebrows[3].textContent = 'कीमतें';
+        if (titles[3]) titles[3].textContent = 'सरल और पारदर्शी कीमतें।';
+        if (eyebrows[4]) eyebrows[4].textContent = 'शुरू करें';
+        if (titles[4]) titles[4].textContent = 'अपनी जगह बुक करें।';
+        if (eyebrows[5]) eyebrows[5].textContent = 'छात्रों की कहानियां';
+        if (titles[5]) titles[5].textContent = 'असली लोग, असली प्रगति।';
+        if (eyebrows[6]) eyebrows[6].textContent = 'सवाल';
+        if (titles[6]) titles[6].textContent = 'अक्सर पूछे जाने वाले सवाल।';
+
+        // Nav links
+        var navLinks = document.querySelectorAll('.nav-links a');
+        if (navLinks[0]) navLinks[0].textContent = 'क्यों हम';
+        if (navLinks[1]) navLinks[1].textContent = 'कैसे काम करता है';
+        if (navLinks[2]) navLinks[2].textContent = 'कीमतें';
+        if (navLinks[3]) navLinks[3].textContent = 'कहानियां';
+        if (navLinks[4]) navLinks[4].textContent = 'सवाल';
+        if (navLinks[5]) navLinks[5].textContent = 'रजिस्टर करें';
+
+        // Countdown banner
+        var cdBannerDiv = document.querySelector('#countdownBanner div div');
+        if (cdBannerDiv) cdBannerDiv.textContent = 'सीमित समय ऑफर — 30 अप्रैल से पहले एनरोल करें और एक मुफ़्त बोनस क्लास पाएं!';
+
+        // Pakistani note → Indian students
+        var pkIcon = document.querySelector('#pricing .section-inner > div:nth-last-of-type(3) span');
+        if (pkIcon) pkIcon.textContent = '🇮🇳';
+        var pkP = document.querySelector('#pricing .section-inner > div:nth-last-of-type(3) p');
+        if (pkP) pkP.innerHTML = '<strong style="color:var(--text);">भारतीय छात्र</strong> — कृपया साइन अप करें और हम आपके लिए एक सुविधाजनक भुगतान विधि की व्यवस्था करेंगे।';
+
+        // Scholarship
+        var schTitle = document.querySelector('#pricing .section-inner > div:last-child .section-inner');
+
+        // WhatsApp tooltip
+        var waTooltip = document.getElementById('waTooltip');
+        if (waTooltip) waTooltip.textContent = 'फहीम से WhatsApp पर बात करें';
+
+        // Form labels
+        var fnameLabel = document.querySelector('label[for="fname"]');
+        var lnameLabel = document.querySelector('label[for="lname"]');
+        var emailLabel = document.querySelector('label[for="email"]');
+        var levelLabel = document.querySelector('label[for="level"]');
+        if (fnameLabel) fnameLabel.textContent = 'पहला नाम';
+        if (lnameLabel) lnameLabel.textContent = 'अंतिम नाम';
+        if (emailLabel) emailLabel.textContent = 'ईमेल पता';
+        if (levelLabel) levelLabel.textContent = 'आपका अंग्रेज़ी स्तर';
+        document.querySelector('.submit-btn').textContent = 'मेरी जगह बुक करें →';
+
+        // SMS banner
+        var smsBanner = document.querySelector('#pricing .section-inner > div:nth-last-of-type(2) div');
+
+      } else {
+        btn.textContent = '🇮🇳 हिंदी';
         location.reload();
       }
     }
