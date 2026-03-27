@@ -723,6 +723,8 @@
       .platform-grid { grid-template-columns: 1fr; }
       .hero-stats { gap: 2rem; }
       .platforms-strip { gap: 0.5rem; padding: 1rem; }
+      #teacher .section-inner > div { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      #teacher .section-inner > div > div:last-child { order: -1; }
     }
   </style>
 </head>
@@ -820,6 +822,41 @@
           <div class="feat-icon" style="background:#FEF0E6;">🤝</div>
           <h3>1-on-1 & group options</h3>
           <p>Prefer privacy or the energy of a group? We offer both so you can learn your way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET YOUR TEACHER -->
+  <section class="section" id="teacher" style="background:var(--white);border-top:1px solid var(--border);">
+    <div class="section-inner">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+        <div>
+          <div class="section-eyebrow">Your teacher</div>
+          <div class="section-title" style="margin-bottom:1.25rem;">Hi, I'm Faheem Hassan.</div>
+          <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:1.25rem;">With 13 years of English teaching experience and a TEFL certification, I've helped over 500 students across 12 countries find their voice in English — from nervous beginners to confident professionals.</p>
+          <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:2rem;">My classes are fun, encouraging, and always tailored to you. I believe the best way to learn a language is to enjoy the process — so expect plenty of laughter, real conversation, and genuine progress every single week.</p>
+          <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+            <div style="text-align:center;">
+              <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--dark);">13</div>
+              <div style="font-size:12px;color:var(--text-faint);text-transform:uppercase;letter-spacing:1px;">Years teaching</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--dark);">500+</div>
+              <div style="font-size:12px;color:var(--text-faint);text-transform:uppercase;letter-spacing:1px;">Students taught</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--dark);">TEFL</div>
+              <div style="font-size:12px;color:var(--text-faint);text-transform:uppercase;letter-spacing:1px;">Certified</div>
+            </div>
+          </div>
+        </div>
+        <div style="position:relative;">
+          <div style="width:100%;max-width:380px;margin:0 auto;position:relative;">
+            <div style="position:absolute;inset:-12px;background:var(--red);border-radius:var(--radius-xl);opacity:0.1;"></div>
+            <img src="face.jpg" alt="Faheem Hassan — English Teacher" style="width:100%;border-radius:var(--radius-xl);display:block;position:relative;z-index:1;object-fit:cover;aspect-ratio:1/1;" />
+            <div style="position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:10px 24px;border-radius:100px;font-family:var(--font-display);font-weight:700;font-size:13px;white-space:nowrap;z-index:2;">TEFL Certified Teacher</div>
+          </div>
         </div>
       </div>
     </div>
