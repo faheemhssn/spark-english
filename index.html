@@ -964,7 +964,7 @@
             <li style="display:flex;align-items:center;gap:10px;font-size:14px;"><span style="width:18px;height:18px;background:#3B6D11;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;flex-shrink:0;">✓</span>Free intro call</li>
           </ul>
           <a href="https://buy.stripe.com/fZu7sK4W777c5S64OEfrW04" target="_blank" style="display:block;text-align:center;background:var(--dark);color:#fff;padding:13px;border-radius:var(--radius-md);font-family:var(--font-display);font-weight:700;font-size:0.95rem;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#E03C28'" onmouseout="this.style.background='#0F172A'">Enroll now — $500</a>
-          <a href="https://buy.stripe.com/14AcN42NZdvA3JY4OEfrW06" target="_blank" style="display:block;text-align:center;background:transparent;color:#3B6D11;border:1px solid #3B6D11;padding:10px;border-radius:var(--radius-md);font-family:var(--font-body);font-weight:500;font-size:13px;text-decoration:none;margin-top:8px;transition:background 0.2s;" onmouseover="this.style.background='#EAF3DE'" onmouseout="this.style.background='transparent'">💳 Pay in 4 installments of $125</a>
+          <a href="https://buy.stripe.com/14AcN42NZdvA3JY4OEfrW06" target="_blank" onclick="return confirmInstallment('$125/month for 4 months — not $500 upfront.')" style="display:block;text-align:center;background:transparent;color:#3B6D11;border:1px solid #3B6D11;padding:10px;border-radius:var(--radius-md);font-family:var(--font-body);font-weight:500;font-size:13px;text-decoration:none;margin-top:8px;transition:background 0.2s;" onmouseover="this.style.background='#EAF3DE'" onmouseout="this.style.background='transparent'">💳 Pay in 4 installments of $125</a>
         </div>
 
         <!-- Adults Plan -->
@@ -988,7 +988,7 @@
             <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="width:18px;height:18px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;flex-shrink:0;">✓</span>Free intro call</li>
           </ul>
           <a href="https://buy.stripe.com/14A00igEPgHM0xM2GwfrW05" target="_blank" style="display:block;text-align:center;background:var(--red);color:#fff;padding:13px;border-radius:var(--radius-md);font-family:var(--font-display);font-weight:700;font-size:0.95rem;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Enroll now — $1,000</a>
-          <a href="https://buy.stripe.com/5kQeVc60b9fkgwK6WMfrW07" target="_blank" style="display:block;text-align:center;background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);padding:10px;border-radius:var(--radius-md);font-family:var(--font-body);font-weight:500;font-size:13px;text-decoration:none;margin-top:8px;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">💳 Pay in 4 installments of $250</a>
+          <a href="https://buy.stripe.com/5kQeVc60b9fkgwK6WMfrW07" target="_blank" onclick="return confirmInstallment('$250/month for 4 months — not $1,000 upfront.')" style="display:block;text-align:center;background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);padding:10px;border-radius:var(--radius-md);font-family:var(--font-body);font-weight:500;font-size:13px;text-decoration:none;margin-top:8px;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">💳 Pay in 4 installments of $250</a>
         </div>
 
       </div>
@@ -1175,6 +1175,10 @@
 
   <script>
     var selectedPlatform = '';
+
+    function confirmInstallment(message) {
+      return confirm('📅 Installment plan:\n\nYou will be charged ' + message + '\n\nStripe may show the total amount — ignore that. You will only be charged the monthly amount each month.\n\nClick OK to continue to payment.');
+    }
 
     function choosePlatform(btn, name) {
       document.querySelectorAll('.platform-btn').forEach(function(b) {
