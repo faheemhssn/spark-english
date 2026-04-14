@@ -1269,6 +1269,26 @@
       document.getElementById('navLinks').classList.toggle('open');
     });
 
+    // Exit intent popup
+    var exitShown = false;
+    document.addEventListener('mouseleave', function(e) {
+      if (e.clientY <= 0 && !exitShown) {
+        exitShown = true;
+        document.getElementById('exitPopup').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    });
+
+    function closeExitPopup() {
+      document.getElementById('exitPopup').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    // Close on background click
+    document.getElementById('exitPopup').addEventListener('click', function(e) {
+      if (e.target === this) closeExitPopup();
+    });
+
     // Urdu translation
     var isUrdu = false;
     var translations = {
@@ -1595,6 +1615,23 @@
       if (t) t.style.display = 'none';
     }, 4000);
   </script>
+
+  <!-- EXIT INTENT POPUP -->
+  <div id="exitPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
+    <div style="background:#fff;border-radius:var(--radius-xl);max-width:480px;width:100%;padding:2.5rem;position:relative;text-align:center;">
+      <button onclick="closeExitPopup()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-muted);line-height:1;">×</button>
+      <div style="font-size:3rem;margin-bottom:1rem;">✋</div>
+      <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--dark);margin-bottom:0.5rem;letter-spacing:-0.5px;">Wait — don't go yet!</div>
+      <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem;">You haven't booked your <strong style="color:var(--dark);">FREE 15-minute trial class</strong> yet! No payment, no commitment — just a chance to see if Spark.English is right for you.</p>
+      <div style="background:#F8F7F4;border-radius:var(--radius-md);padding:1rem;margin-bottom:1.5rem;">
+        <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">🎁 Enroll before April 30 and also get a</div>
+        <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:800;color:var(--red);">FREE bonus class!</div>
+      </div>
+      <a href="https://calendly.com/thoughtdotprophet/30min" target="_blank" onclick="closeExitPopup()" style="display:block;background:var(--red);color:#fff;padding:14px;border-radius:var(--radius-md);font-family:var(--font-display);font-weight:700;font-size:1rem;text-decoration:none;margin-bottom:0.75rem;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">📅 Book my FREE trial class now</a>
+      <a href="https://wa.me/14347099024?text=Hi%20Faheem!%20I%27m%20interested%20in%20a%20free%20trial%20class." target="_blank" onclick="closeExitPopup()" style="display:block;background:transparent;color:#25D366;border:1px solid #25D366;padding:12px;border-radius:var(--radius-md);font-family:var(--font-body);font-weight:500;font-size:14px;text-decoration:none;margin-bottom:0.75rem;transition:background 0.2s;" onmouseover="this.style.background='#f0fff4'" onmouseout="this.style.background='transparent'">💬 Message Faheem on WhatsApp instead</a>
+      <button onclick="closeExitPopup()" style="background:none;border:none;font-size:12px;color:var(--text-faint);cursor:pointer;text-decoration:underline;">No thanks, I'll leave without my free class</button>
+    </div>
+  </div>
 
 </body>
 </html>
